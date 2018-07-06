@@ -1,0 +1,10 @@
+<div> send secret code to this email </div>
+<%= form_with url: request_create_create_path do  |f|%>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

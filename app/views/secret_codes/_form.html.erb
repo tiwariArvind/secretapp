@@ -1,0 +1,22 @@
+<%= form_with(model: secret_code, local: true) do |form| %>
+  <% if secret_code.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(secret_code.errors.count, "error") %> prohibited this secret_code from being saved:</h2>
+      <ul>
+        <% secret_code.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= form.label :secret_code %>
+    <%= form.text_field :secret_code, id: :secret_code_secret_code %>
+  </div>
+  <div class="col-sm-8">
+    <%= select_tag 'user_id',options_from_collection_for_select(users_name, 'id', 'email'), :prompt => "Select user", :class => "form-control", style: "background-color: #eee;"%>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
